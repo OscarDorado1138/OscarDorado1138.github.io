@@ -21,18 +21,9 @@ h1
 
 
 
-body 
-{
-  height: 100vh
-  background:
-    image: url(https://unsplash.imgix.net/photo-1414490929659-9a12b7e31907)
-    size: cover
-    position: center
-    margin-bottom: 50px
 
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    text-align: center
+
+body 
+{ 
+  	background-image: radial-gradient(circle, lightblue 0.001px, #25232B 1px);
 }
