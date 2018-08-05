@@ -9,8 +9,6 @@ var thumber = $('.text-bar__thumb');
 
 var scrollTop = $(window).scrollTop();
 
-
-
 var Message = {
 	currentText: "test",
 	init: function(){
@@ -142,8 +140,20 @@ newMessage.init();
 var newThumb = Object.create(Thumb);
 newThumb.init();
  
-
-
-  $( function() {
-    $( "#tabs" ).tabs();
-  } );
+$( function() {
+  $( "#tabs" ).tabs();
+  
+  $("#vote").click(function() {
+    $("#msg").css("color", "black");
+    if($("#radio-1").is(':checked')) {
+      $("#msg").text("hello world");
+    } else if($("#radio-2").is(':checked')) {
+      $("#msg").text("goodbye world");
+    } else if($("#radio-3").is(':checked')) {
+      $("#msg").text("dlrow olleh");
+    } else {
+      $("#msg").css("color", "red");
+      $("#msg").text("select an option");
+    }
+  });
+});
