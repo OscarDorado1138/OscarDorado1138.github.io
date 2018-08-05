@@ -2,13 +2,10 @@
 
 <!--
 Copyright 2015 Google Inc.
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
      http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -26,6 +23,17 @@ limitations under the License.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  
+  
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  
 <style type="text/css">
          p{
         padding: 25px;
@@ -34,25 +42,41 @@ limitations under the License.
         text-align: center;
         background: #f2f2f2;
   }
-h2 
+h1
 {
   text-align: center;
+  color: white;
 }
-
 body
 {
        height: 100vh;
-       background-image: url(https://unsplash.imgix.net/photo-1414490929659-9a12b7e31907);
+       background-image: url(https://docs.google.com/uc?id=1xNoqDoakoHr_fc0CKyNNu0PVjSDrDcFU);
     background-size: cover;
     background-position: center;
   background-margin-bottom: 50px;
-
-
 }
      
 </style>
 </head>
 <body>
+  
+  
+  <div id="menu">
+     <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+     </ul>
+</div>
+
+  
+  
+  
+  
+  
+  
      <header>
       <div class="container">
        <div class="row">
@@ -61,8 +85,25 @@ body
       </div>
      </header>
      
+
+  
+  
+        <div class="container">
+       <div class="row">
+  
+  <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Nunc tincidunt</a></li>
+    <li><a href="#tabs-2">Proin dolor</a></li>
+    <li><a href="#tabs-3">Aenean lacinia</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+  </div>
+  <div id="tabs-2">
     <div class="container">
         <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-6">
             <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 1</p></div>
             <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 2</p></div>
             <div class="clearfix visible-sm-block"></div>
@@ -85,13 +126,58 @@ body
             <div class="clearfix visible-sm-block"></div>
             <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 11</p></div>
             <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 12</p></div>
+            </div>
+          <div class="col-sm-6 col-md-4 col-lg-6">
+          <div class="screen">
+	<div class="conversation">
+		<div class="messages messages--received">
+			<div class="message">This codepen is an exemple of</div>
+			<div class="message">how to create the Facebook thumb up</div>
+		</div>
+		<div class="messages messages--sent">
+			<div class="message">Try to type</div>
+			<div class="message">or click the thumb up!</div>
+			<div class="message">;)</div>
+		</div>
+		<div class="messages messages--received">
+			<div class="message">Enjoy!</div>
+		</div>
+	</div>
+	<div class="text-bar">
+		<form class="text-bar__field" id="form-message">
+			<input type="text" placeholder="Type or thumb up ;)"/>
+		</form>
+		<div class="text-bar__thumb">
+			<div class="thumb"></div>
+		</div>
+	</div>
+</div>  
+          
+  </div>          
+          
+          
+          
            </div>     
     </div>
+  </div>
+    
+    
+    
+    
+  <div id="tabs-3">
+    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+  </div>
+</div>
+
+    </div>
+</div>
   
 </body>
 </html>        
      
      
      
-     
-</html>
+
+
+
