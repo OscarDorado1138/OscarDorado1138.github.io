@@ -19,6 +19,5 @@ h1 {
 }
 
 body { 
-	background-size: 20px 20px;
-  background-image: radial-gradient(circle, lightblue 0.001px, #25232B 1px);
+  	background-image: radial-gradient(circle, lightblue 0.001px, #25232B 1px);
 }
