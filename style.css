@@ -19,12 +19,9 @@ h1
   text-align: center;
 }
 
-body 
-{ 
-  	background-image: radial-gradient(circle, lightblue 0.001px, #25232B 1px);
-}
 
-head
+
+body 
 {
   height: 100vh
   background:
