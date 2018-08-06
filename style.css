@@ -57,7 +57,9 @@
 
 
 //-----GLOBAL
-
+* {
+	box-sizing: border-box;
+}
 .clearfix{
 	&:after{
 		content: "";
