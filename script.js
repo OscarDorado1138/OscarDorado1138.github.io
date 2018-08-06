@@ -146,4 +146,5 @@ newThumb.init();
 
   $( function() {
     $( "#tabs" ).tabs();
+    $("#input").checkboxradio();
   } );
