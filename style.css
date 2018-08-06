@@ -212,3 +212,10 @@ body{
 {
          height: 85vh;
 }
+
+
+.remove-all-margin-padding{
+margin:0 ! important;
+padding:0 ! important;
+}
+
