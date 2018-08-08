@@ -336,47 +336,39 @@ function click(d) {
   update(d);
 }
 
-
-
-
-
-
-
-
-
-
-
+//read/write to Google Sheets
+//based off of https://codepen.io/Ranjithkumar10/full/zoJzbp combined with [whatever thing Brian found to write to Sheets]
 var employeeData;
 
 function refreshData() {
-  $('#employeeSelect').html(""); 
+  //clear the dropdown menu
+  $('#employeeSelect').html("");
+  //fetch all the info, even info fetched before
   $.get( "https://sheets.googleapis.com/v4/spreadsheets/1DSMxZYIZIgNXdI77YldOliWo-es5R7pVYdcpNHY6Asg/values/Sheet1!A2:E100?key=AIzaSyB5WTjIR5OZt108xl9uQApzeoNRWuMyYRE", function( data ) {
     employeeData = data;
     console.log(data);
-  for(i=0;i<data.values.length;i++){
-    var employeeName = data.values[i][1]; //email
-    
-   $('#employeeSelect').append($('<option>', {
-    value: employeeName,
-    text: employeeName
-}));
-    
-  }
+    for(i=0;i<data.values.length;i++){
+      var employeeName = data.values[i][1]; //email
+      $('#employeeSelect').append($('<option>', {
+        value: employeeName,
+        text: employeeName
+      }));
+    }
     $('#employeeList').show();
     $('#loading').hide();
-});
+  });
   
   data.push({
     parent:   "Josh",
     value: "Oscar"
-});
+  });
   
   update(root);
 }
 
-$(document).ready(function(){
-  refreshData();
-});
+//$(document).ready(function(){
+//  refreshData();
+//});
 
 $('#employeeList').submit(function(e){
   e.preventDefault();
@@ -397,11 +389,13 @@ $("#refresh").click(function() {
   refreshData();
 });
 
-
+//code inside following snippet runs once the page loads
 $( function() {
   //already inside HTML script tag
   //$("#tabs").tabs();
   //$("#input").checkboxradio();
+
+  refreshData();
   
   //voting confirmation
   $("#vote").click(function() {
