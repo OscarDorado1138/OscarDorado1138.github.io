@@ -12,10 +12,9 @@
   <link rel="stylesheet" href="/resources/demos/style.css"> 
   <link rel="stylesheet" href="style.css">
   
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="script.js"></script>
 
@@ -23,8 +22,23 @@
   <script>
     $(function() {
       $("#tabs").tabs();
-      $("#voting").checkboxradio();
+      //$("#voting").checkboxradio();
+
+      //voting confirmation
+      $("#vote").click(function() {
+        if($("#radio-1").is(':checked')) {
+          $("#msg").text("hello world");
+        } else if($("#radio-2").is(':checked')) {
+          $("#msg").text("goodbye world");
+        } else if($("#radio-3").is(':checked')) {
+          $("#msg").text("dlrow olleh");
+        } else {
+          $("#msg").text("select an option");
+        }
+      });
     });
+
+    
     
     //write to Sheets
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwmj_J5-yzEDOhUc2czE8wKVQpWPUvvkAbp17_hLLeQ4PIdQRPr/exec';
@@ -105,90 +119,26 @@
         <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
       </div>
       <div id="tabs-2">
+        <div class="row" style="">
+          <textarea name="storyPH" rows="15" placeholder="type story here" style="width: 100%; min-height: 70%"></textarea>
+        </div>
         <div class="row">
-          <div class="col-sm-6 col-md-4 col-lg-6">
-            <div class="row">
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 1</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 2</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 3</p></div>
-              <div class="clearfix visible-md-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 4</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="clearfix visible-lg-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 5</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 6</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="clearfix visible-md-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 7</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 8</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="clearfix visible-lg-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 9</p></div>
-              <div class="clearfix visible-md-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 10</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 11</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 12</p></div>
-            </div>
-            <div class="row">
-              <div id="voting" class="widget">
-                <fieldset>
-                  <legend>Select an Action: </legend>
-                  <input type="radio" name="radio-1" id="radio-1">
-                  <label for="radio-1">Action 1</label><br>
-                  <input type="radio" name="radio-1" id="radio-2">
-                  <label for="radio-2">Action 2</label><br>
-                  <input type="radio" name="radio-1" id="radio-3">
-                  <label for="radio-3">Action 3</label><br>
-                  <input type="button" id="vote" value="Submit Vote">
-                  <p id="msg"></p>
-                </fieldset>
-              </div>
-            </div> 
+          <div id="voting" class="col widget">
+            <form>
+              <fieldset>
+                <legend>Select an Action: </legend>
+                <input type="radio" name="radio-1" id="radio-1">
+                <label for="radio-1">Action 1</label><br>
+                <input type="radio" name="radio-2" id="radio-2">
+                <label for="radio-2">Action 2</label><br>
+                <input type="radio" name="radio-3" id="radio-3">
+                <label for="radio-3">Action 3</label><br>
+              </fieldset>
+              <input type="button" id="vote" value="Submit Vote">
+            </form>
+            <p id="msg"></p>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-6">
-            <div class="row">
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 1</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 2</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 3</p></div>
-              <div class="clearfix visible-md-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 4</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="clearfix visible-lg-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 5</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 6</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="clearfix visible-md-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 7</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 8</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="clearfix visible-lg-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 9</p></div>
-              <div class="clearfix visible-md-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 10</p></div>
-              <div class="clearfix visible-sm-block"></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 11</p></div>
-              <div class="col-sm-6 col-md-4 col-lg-3"><p>Box 12</p></div>
-            </div>
-            <div class="row">
-              <div id="voting" class="widget">
-                <fieldset>
-                  <legend>Select an Action: </legend>
-                  <input type="radio" name="radio-1" id="radio-1">
-                  <label for="radio-1">Action 1</label><br>
-                  <input type="radio" name="radio-1" id="radio-2">
-                  <label for="radio-2">Action 2</label><br>
-                  <input type="radio" name="radio-1" id="radio-3">
-                  <label for="radio-3">Action 3</label><br>
-                  <input type="button" id="vote" value="Submit Vote">
-                  <p id="msg"></p>
-                </fieldset>
-              </div>
-            </div> 
-          </div>   
-        </div>     
+        </div>    
       </div>
       <div id="tabs-3">
         <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
