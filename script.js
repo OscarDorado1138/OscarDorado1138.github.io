@@ -141,35 +141,6 @@ newMessage.init();
 
 var newThumb = Object.create(Thumb);
 newThumb.init();
- 
-
-
-  $( function() {
-    //already inside HTML script tag
-    //$("#tabs").tabs();
-    //$("#input").checkboxradio();
-<<<<<<< HEAD
-    
-    //voting confirmation
-    $("#vote").click(function() {
-      if($("#radio-1").is(':checked')) {
-        $("#msg").text("hello world");
-      } else if($("#radio-2").is(':checked')) {
-        $("#msg").text("goodbye world");
-      } else if($("#radio-3").is(':checked')) {
-        $("#msg").text("dlrow olleh");
-      } else {
-        $("#msg").text("select an option");
-      }
-    });
-  });
-=======
-  } );
-
-
-
-
-
 
 //Tree
 var data = [
@@ -425,4 +396,23 @@ function displayEmployee(name){
 $("#refresh").click(function() {
   refreshData();
 });
->>>>>>> 9fe111785e93e0cc54a14a8cf63a9cff84ca9730
+
+
+$( function() {
+  //already inside HTML script tag
+  //$("#tabs").tabs();
+  //$("#input").checkboxradio();
+  
+  //voting confirmation
+  $("#vote").click(function() {
+    if($("#radio-1").is(':checked')) {
+      $("#msg").text("hello world");
+    } else if($("#radio-2").is(':checked')) {
+      $("#msg").text("goodbye world");
+    } else if($("#radio-3").is(':checked')) {
+      $("#msg").text("dlrow olleh");
+    } else {
+      $("#msg").text("select an option");
+    }
+  });
+});
