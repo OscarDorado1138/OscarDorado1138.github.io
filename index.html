@@ -13,9 +13,9 @@
   
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="script.js"></script>
-
 
   
   <script>
@@ -67,6 +67,7 @@
   <div class="container">
     <div class="row">
       <h1 style="color: black"> AdventureTime </h1>
+      <h1 style="color: black"> AdventuretTime </h1>
     </div>     
   </div>
 </header>	
@@ -179,6 +180,41 @@
   </div>
 </div>
  
+  
+              <div class="row">
+  <div class="col-lg-4" style="margin:20px">
+  <p class="lead" id="loading">Fetching list of employees...</p>
+  <Form id="employeeList" style="display:none">
+<select id="employeeSelect" class="form-control"></select>
+    <input type="submit" class="btn btn-info" value="View details" style="margin-top:10px"/>
+    </Form>
+  <p class="lead" id="employeeDetails" style="display:none"></p>
+</div>
+<div class="col-lg-4" style="margin:20px">
+  <form name="submit-to-google-sheet">
+    <input name="email" type="email" placeholder="Email"><br>
+    <input name="firstname" type="text" placeholder="First Name">
+  <button type="submit">Send</button>
+</form>
+ 
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwmj_J5-yzEDOhUc2czE8wKVQpWPUvvkAbp17_hLLeQ4PIdQRPr/exec'
+  const form = document.forms['submit-to-google-sheet']
+ 
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</div>
+
+<div class="col-lg-4" style="margin:20px">
+  <input id="refresh" class="btn btn-info" type="button" value="refresh data">
+</div>
+</div>
+  
  
 </body>
 </html>
