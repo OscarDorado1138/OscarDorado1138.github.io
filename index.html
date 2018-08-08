@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <!--link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"-->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/demos/style.css"> 
   <link rel="stylesheet" href="style.css">
   
@@ -60,6 +61,12 @@
       background-position: center;
       background-margin-bottom: 50px;
     }
+    /*#storyMain {
+      width: 66%;
+    }
+    #storyChat {
+      width: 34%;
+    }*/
   </style>	
   
   
@@ -86,8 +93,8 @@
   </div>
 </header>	
 
-<div class="row" style="border: 2px solid black">
-  <div id="storyMain" class="col-8" style="border: 2px solid green">
+<div id="storyBlock" class="row" style="border: 2px solid black">
+  <div id="storyMain" class="col-lg-8" style="border: 2px solid lightgreen">
     <div id="tabs" style="">
       <ul>
         <li><a href="#tabs-1">Nunc tincidunt</a></li>
@@ -189,7 +196,7 @@
       </div> 
     </div>
   </div>
-  <div id="storyChat" class="col-4" style="border: 2px solid red">
+  <div id="storyChat" class="col-lg-4" style="border: 2px solid red">
     <p>Chat goes here</p>
   </div>
 </div>
