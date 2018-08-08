@@ -148,4 +148,17 @@ newThumb.init();
     //already inside HTML script tag
     //$("#tabs").tabs();
     //$("#input").checkboxradio();
-  } );
+    
+    //voting confirmation
+    $("#vote").click(function() {
+      if($("#radio-1").is(':checked')) {
+        $("#msg").text("hello world");
+      } else if($("#radio-2").is(':checked')) {
+        $("#msg").text("goodbye world");
+      } else if($("#radio-3").is(':checked')) {
+        $("#msg").text("dlrow olleh");
+      } else {
+        $("#msg").text("select an option");
+      }
+    });
+  });
