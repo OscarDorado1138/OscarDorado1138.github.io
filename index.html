@@ -14,6 +14,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="script.js"></script>
 
@@ -23,6 +24,18 @@
       $("#tabs").tabs();
       $("#voting").checkboxradio();
     });
+    
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwmj_J5-yzEDOhUc2czE8wKVQpWPUvvkAbp17_hLLeQ4PIdQRPr/exec'
+  const form = document.forms['submit-to-google-sheet']
+ 
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+    
+    
   </script>
   
   
@@ -196,17 +209,7 @@
   <button type="submit">Send</button>
 </form>
  
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwmj_J5-yzEDOhUc2czE8wKVQpWPUvvkAbp17_hLLeQ4PIdQRPr/exec'
-  const form = document.forms['submit-to-google-sheet']
- 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
+
 </div>
 
 <div class="col-lg-4" style="margin:20px">
