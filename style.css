@@ -1,7 +1,15 @@
+
+#editor{
+  width: 600px;
+  height: 900px;
+  box-shadow: 3px 0 10px black;
+  margin: 0 auto;
+}
+
 #menu {
      margin: 0;
      width: auto;
-     background-color: #669999;
+     background-color: #843c0c;
      font-size: 16px;
      font-family: Tahoma, Geneva, sans-serif;
      font-weight: bold;
@@ -65,17 +73,13 @@
 		visibility: hidden;
 	}
 }
-body{
-	background-color: #ddd;
-	padding: 40px;
-}
 
 
 //-----MESSAGES
 .screen{
 	background-color: #fff;
-	height: 400px;
-	width: 300px;
+	height: 82vh;
+	width: 500px;
 	margin: 0 auto;
 	box-shadow: 0 2px 2px rgba(0,0,0,.2);
 }
