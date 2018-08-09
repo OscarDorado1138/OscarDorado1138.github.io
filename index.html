@@ -45,6 +45,7 @@ function makeApiCallWrite() {
 
         // How the input data should be interpreted.
         valueInputOption: 'RAW',  // TODO: Update placeholder value.
+        var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
       };
 
       var vals = ["1","2","3","4","5"];
@@ -77,7 +78,7 @@ function makeApiCallWrite() {
       //   'https://www.googleapis.com/auth/drive.readonly'
       //   'https://www.googleapis.com/auth/spreadsheets'
       //   'https://www.googleapis.com/auth/spreadsheets.readonly'
-      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
       gapi.client.init({
         'apiKey': API_KEY,
@@ -115,6 +116,6 @@ function makeApiCallWrite() {
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
     <input id="clickMe" type="button" value="clickme" onclick="makeApiCall();" />
-    <input id="clickMe2" type="button" value="clickme2" onclick="makeApiCallWrite();" />
+    <input id="clickMe2" type="button" value="clickme3" onclick="makeApiCallWrite();" />
   </body>
 </html>
