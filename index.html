@@ -50,7 +50,7 @@ function makeApiCallWrite() {
       var vals = ["1","2","3","4","5"];
   
       var valueRangeBody = {
-        "values": vals;
+        "values": vals
       };
 
       var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
@@ -115,6 +115,6 @@ function makeApiCallWrite() {
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
     <input id="clickMe" type="button" value="clickme" onclick="makeApiCall();" />
-    <input id="clickMe2" type="button" value="clickme" onclick="makeApiCallWrite();" />
+    <input id="clickMe2" type="button" value="clickme2" onclick="makeApiCallWrite();" />
   </body>
 </html>
