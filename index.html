@@ -32,6 +32,40 @@
       });
     }
 
+      
+      
+      
+function makeApiCallWrite() {
+      var params = {
+        // The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '156Vi57phPbCAOhbgpK8n6pR5BttWCGvX93QG4lmsZhY',  // TODO: Update placeholder value.
+
+        // The A1 notation of the values to retrieve.
+        range: 'Sheet1',  // TODO: Update placeholder value.
+
+        // How the input data should be interpreted.
+        valueInputOption: 'RAW',  // TODO: Update placeholder value.
+      };
+
+      var vals[5] = ["1","2","3","4","5"];
+  
+      var valueRangeBody = {
+        "values": vals;
+      };
+
+      var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+      request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }      
+      
+      
+      
+      
+      
     function initClient() {
       var API_KEY = 'AIzaSyDeWJKvJ5BFMn8YamcMm1FFYRiOYkWP-fU';  // TODO: Update placeholder with desired API key.
 
@@ -81,5 +115,6 @@
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
     <input id="clickMe" type="button" value="clickme" onclick="makeApiCall();" />
+    <input id="clickMe2" type="button" value="clickme" onclick="makeApiCallWrite();" />
   </body>
 </html>
