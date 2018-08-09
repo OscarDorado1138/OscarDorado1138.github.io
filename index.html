@@ -47,7 +47,9 @@ function makeApiCallWrite() {
         valueInputOption: 'RAW',  // TODO: Update placeholder value.
       };
 
-      var vals = ["1","2","3","4","5"];
+      var vo = "1";
+      var v2 = "2";
+      var vals = [vo,v2,vo,v2,vo];
   
       var valueRangeBody = {
         "values": vals
@@ -115,6 +117,6 @@ function makeApiCallWrite() {
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
     <input id="clickMe" type="button" value="clickme" onclick="makeApiCall();" />
-    <input id="clickMe2" type="button" value="clickme5" onclick="makeApiCallWrite();" />
+    <input id="clickMe2" type="button" value="clickme6" onclick="makeApiCallWrite();" />
   </body>
 </html>
