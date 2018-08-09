@@ -48,12 +48,12 @@ function makeApiCallWrite() {
       };
 
       var vals = new Array(spread);
-      vals[0] = new Array(3);
-      vals[0][0] = "New Page Number";
-      vals[0][1] = "New Page Text";
-      vals[0][2] = "New Choice 1";
-      vals[0][3] = "New Choice 2";
-      vals[0][4] = "New Choice 3";
+      vals[0] = new Array(4);
+      vals[4][0] = "New Page Number";
+      vals[4][1] = "New Page Text";
+      vals[4][2] = "New Choice 1";
+      vals[4][3] = "New Choice 2";
+      vals[4][4] = "New Choice 3";
   
       var valueRangeBody = {
         "values": vals
@@ -121,6 +121,6 @@ function makeApiCallWrite() {
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
     <input id="clickMe" type="button" value="clickme" onclick="makeApiCall();" />
-    <input id="clickMe2" type="button" value="clickme8" onclick="makeApiCallWrite();" />
+    <input id="clickMe2" type="button" value="clickme9" onclick="makeApiCallWrite();" />
   </body>
 </html>
