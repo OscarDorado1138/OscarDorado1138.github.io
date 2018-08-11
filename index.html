@@ -1,126 +1,247 @@
-<html>
-  <head></head>
-  <body>
-    <!--
-    BEFORE RUNNING:
-    ---------------
-    1. If not already done, enable the Google Sheets API
-       and check the quota for your project at
-       https://console.developers.google.com/apis/api/sheets
-    2. Get access keys for your application. See
-       https://developers.google.com/api-client-library/javascript/start/start-js#get-access-keys-for-your-application
-    3. For additional information on authentication, see
-       https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
-    -->
-    <script>
-    function makeApiCall() {
-      var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '156Vi57phPbCAOhbgpK8n6pR5BttWCGvX93QG4lmsZhY',  // TODO: Update placeholder value.
-
-        // The A1 notation of the values to retrieve.
-        range: 'Sheet1',  // TODO: Update placeholder value.
-
-      };
-
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        console.log(response.result);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
-    }
-
-      
-      var spread= 5;
-      
-function makeApiCallWrite() {
-      var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '156Vi57phPbCAOhbgpK8n6pR5BttWCGvX93QG4lmsZhY',  // TODO: Update placeholder value.
-
-        // The A1 notation of the values to retrieve.
-        range: 'Sheet1',  // TODO: Update placeholder value.
-
-        // How the input data should be interpreted.
-        valueInputOption: 'RAW',  // TODO: Update placeholder value.
-      };
-
-      var vals = new Array(1);
-      vals[0] = new Array(1);
-      vals[0][0] = "New Page Number";
-      vals[0][1] = "New Page Text";
-      vals[0][2] = "New Choice 1";
-      vals[0][3] = "New Choice 2";
-      vals[0][4] = "New Choice 3";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdventureTime</title>
   
-      var valueRangeBody = {
-        "values": vals
-      };
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!--link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css"> 
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="script.js"></script>
 
-      var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
-      request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        console.log(response.result);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
-    }      
-      
-      
-      
-      
-      
-    function initClient() {
-      var API_KEY = 'AIzaSyDeWJKvJ5BFMn8YamcMm1FFYRiOYkWP-fU';  // TODO: Update placeholder with desired API key.
-
-      var CLIENT_ID = '501166122010-t3r5o512tbbbn38i18loqhq7cuhp1j3e.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
-
-      // TODO: Authorize using one of the following scopes:
-      //   'https://www.googleapis.com/auth/drive'
-      //   'https://www.googleapis.com/auth/drive.file'
-      //   'https://www.googleapis.com/auth/drive.readonly'
-      //   'https://www.googleapis.com/auth/spreadsheets'
-      //   'https://www.googleapis.com/auth/spreadsheets.readonly'
-      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
-
-      gapi.client.init({
-        'apiKey': API_KEY,
-        'clientId': CLIENT_ID,
-        'scope': SCOPE,
-        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-      }).then(function() {
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-      });
+  
+  <script>
+    $(function() {
+      $("#tabs").tabs();
+      $("#voting").checkboxradio();
+    });
+    
+    //write to Sheets
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwmj_J5-yzEDOhUc2czE8wKVQpWPUvvkAbp17_hLLeQ4PIdQRPr/exec';
+    const form = document.forms['submit-to-google-sheet'];
+ 
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message));
+      return false;
+    })
+    
+    
+  </script>
+  
+  
+  <style type="text/css">
+    p{
+      padding: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      background: #f2f2f2;
     }
-
-    function handleClientLoad() {
-      gapi.load('client:auth2', initClient);
+    h1{
+      text-align: center;
+      color: white;
     }
-
-    function updateSignInStatus(isSignedIn) {
-      if (isSignedIn) {
-        makeApiCall();
-      }
+    body{
+      height: 100vh;
+      background-color: #ffe699; 
+      background-size: cover;
+      background-position: center;
+      background-margin-bottom: 50px;
+      margin: 0;
+      padding: 0;
     }
-
-    function handleSignInClick(event) {
-      gapi.auth2.getAuthInstance().signIn();
+    #mainbody{
+      padding:40px;
     }
-
-    function handleSignOutClick(event) {
-      gapi.auth2.getAuthInstance().signOut();
+    #rightsection{
+      padding-left: 0;
+      padding-right:0;
     }
-    </script>
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
-    <input id="clickMe" type="button" value="read" onclick="makeApiCall();" />
-    <input id="clickMe2" type="button" value="send" onclick="makeApiCallWrite();" />
-  </body>
+        #leftsection{
+      padding-left: 35px;
+      padding-right:0;
+    }
+    #readerwriterblock{
+      padding-left: 0;
+      padding-right:0;
+    }
+    #editor{
+      height: 100vh;
+    }
+    
+  </style>	
+  
+  
+  
+</head>
+<body >
+ 
+<header> 
+    
+<div id="menu" style="text-align: center;">
+  <ul>
+    <li ><a href="#" >> AdventureTime</a></li>
+  </ul>
+</div>  
+  
+</header>	
+<div id="mainbody" class="row">
+
+  
+<div id="leftsection" class="col-sm-8 col-md-8 col-lg-8">
+  <div id="readerwriterblock" class="row">
+
+    <div id="tabs" style="">
+      <ul>
+        <li><a href="#tabs-1">Writer</a></li>
+        <li><a href="#tabs-2">Reader</a></li>
+        <li><a href="#tabs-3">Story Map</a></li>
+      </ul>
+      
+        <div id="tabs-1">
+
+          <div class="w3-container">
+
+
+            <div id="editor" class="editor"></div>
+
+
+
+
+
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+          <input type='text' id='c1' placeholder='Choice 1'>
+          </div>
+          </div>
+
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+          <input type='text' id='c2' placeholder='Choice 2'>
+          </div>
+          </div>
+
+              <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+          <input type='text' id='c3' placeholder='Choice 3'>
+          </div>
+          </div>
+                          <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+          <input type='text' id='c4' placeholder='Page #'>
+          </div>
+          </div>
+            
+            
+
+            <div class="row">
+              <form action="">
+                   <input type="button" id="myButton" value="Submit"/>
+              </form> 
+          </div>
+
+           </div>
+
+
+      
+      </div>
+      
+        <div id="tabs-2">
+          <div class="row" style="">
+          <p>You are walking alone down a dirt path when suddenly you encounter an entrance to a cave. You see a distant light shining from deep inside the cave. What could be shining inside the cave? You step closer to the cave when you suddenly a cold wind begins to blow. You have a bad feeling about this.</p>
+          </div>
+          <div class="row">
+            <div id="voting" class="col widget" style="border: 2px solid chocolate; padding: 5px;">
+              <form>
+                <fieldset>
+                  <legend>What will you do?: </legend>
+                  <input type="radio" name="radio" id="radio-1">
+                  <label for="radio-1">Enter the cave </label><br>
+                  <input type="radio" name="radio" id="radio-2">
+                  <label for="radio-2">Stay on dirt path</label><br>
+                  <input type="radio" name="radio" id="radio-3">
+                  <label for="radio-3">Turn around back into town</label><br>
+                </fieldset>
+                <input type="button" id="vote" value="Submit Vote">
+              </form>
+              <p id="msg" style="padding: 2px"></p>
+            </div>
+          </div>    
+      </div>
+      <div id="tabs-3">
+<tree-graph id="treeGraph"></tree-graph>
+      </div> 
+    </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <div id="leftsection" class="col-sm-4 col-md-4 col-lg-4">
+  <div class="screen">
+	<div class="conversation">
+		<div class="messages messages--received">
+			<div class="message">We need to get help from town</div>
+			<div class="message">I don't want to die T_T</div>
+		</div>
+		<div class="messages messages--sent">
+			<div class="message">Choice 1!</div>
+			<div class="message">Caves are coooool </div>
+			<div class="message">;)</div>
+		</div>
+		<div class="messages messages--received">
+			<div class="message">Stay on path, NOT our problem!</div>
+		</div>
+	</div>
+	<div class="text-bar">
+		<form class="text-bar__field" id="form-message">
+			<input type="text" placeholder="Type a message "/>
+		</form>
+		<div class="text-bar__thumb">
+
+		</div>
+	</div>
+</div>
+  
+  </div>
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+</div>    
+
+</body>
 </html>
+
